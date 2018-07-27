@@ -2,7 +2,8 @@
 $(document).ready(readyNow);
 
 let salaryArray = [];
-let totalCosts = 0;
+
+
 
 function readyNow() {
     $('#submitButton').on('click', appendDOM);
@@ -13,7 +14,7 @@ function appendDOM() {
     let lastName = $('#lastNameInput').val(); // gets value of last name input 
     let id = $('#idInput').val(); // gets value of id input 
     let title = $('#titleInput').val(); // gets value of title input 
-    let annualSalary = $('#annualSalaryInput').val(); // gets value of annual salary input 
+    let annualSalary = $('#annualSalaryInput').val(); // gets value of annual salary input
     $('#employeeTableBody').append('<tr><td>' + firstName + '</td>' + '<td>' + lastName + '</td>' + '<td>' + id + '</td>' + '<td>' + title + '</td>' + '<td>' + annualSalary + '</td> <td><button class="btn btn-info" id="delete-button">Delete Entry</button></td></tr>');
     salaryArray.push(annualSalary); // adds annualSalary to an array 
     $('#firstNameInput').val(''); 
@@ -25,11 +26,18 @@ function appendDOM() {
 }
 
 function calculateCosts(arrayOfSalaries) {
+    let monthlyTotal = 0;
     for (let i = 0; i < arrayOfSalaries.length; i++) {
-        arrayOfSalaries[i]= parseInt(arrayOfSalaries[i]);
-        totalCosts = (totalCosts + arrayOfSalaries[i]);
-   
+        let numSalary= parseInt(arrayOfSalaries[i]);
+        let monthlySalary = numSalary/12;
+        console.log('Currently monthly salary is ' ,monthlySalary);
+        monthlyTotal = monthlyTotal + (numSalary / 12); 
+        console.log('Monthly total is: ' , monthlyTotal);   
     }
-    $('#total-container').html('<p> Total Monthly Costs: $ ' + totalCosts + '</p>')
+    $('#total-container').html('<p> Total Monthly Costs: $ ' + monthlyTotal.toFixed(2) + '</p>')
+    return monthlyTotal; 
+    
 }
+// need to create a delete entry function 
+// then maybe do stretch goals. 
 
