@@ -13,37 +13,38 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Salary Calculator</h1>
+    <div id="header-container" class="jumbotron">
+        <h1 class="display-4">Monthly Salary Calculator</h1>
+        <p>Enter information about your employees to calculate monthly salary costs.</p>
+        <div id="input-container" class="container-fluid">
+            <input id="firstNameInput" type="text" placeholder="First Name">
+            <input id="lastNameInput" type="text" placeholder="Last Name">
+            <input id="idInput" type="number" placeholder="ID">
+            <input id="titleInput" type="text" placeholder="Title">
+            <input id="annualSalaryInput" type="number" placeholder="Annual Salary">
+            <button id="submitButton" class="btn btn-light">Add Employee</button>
+        </div>
     </div>
-    <div id="input-container" class="container">
-        <input id="firstNameInput" type="text" placeholder="First Name">
-        <input id="lastNameInput" type="text" placeholder="Last Name">
-        <input id="idInput" type="number" placeholder="ID">
-        <input id="titleInput" type="text" placeholder="Title">
-        <input id="annualSalaryInput" type="number" placeholder="Annual Salary">
-        <button id="submitButton" class="btn btn-primary">Add Employee</button>
+
+    <div id="table-container">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Annual Salary</th>
+                    <th scope="col">Remove</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTableBody">
+
+            </tbody>
+        </table>
     </div>
-<div id="table-container" class="container">
-    <table class="table">
-        <thead>
-            <tr>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">ID</th>
-              <th scope="col">Title</th>
-              <th scope="col">Annual Salary</th>
-              <th scope="col">Remove</th>
-            </tr>
-          </thead>
-          <tbody id="employeeTableBody">
+    <div id="total-container" class="col-md-3">
 
-          </tbody>
-    </table>
-</div>
-<div id="total-container" class="container">
-
-</div>
+    </div>
 </body>
-
 </html>
