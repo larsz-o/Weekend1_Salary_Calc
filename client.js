@@ -25,7 +25,7 @@ function appendDOM() {
     let titleInput = $('#titleInput').val(); // gets value of title input 
     let annualSalaryInput = $('#annualSalaryInput').val(); // gets value of annual salary input
     let inputEmployee = new Employee(firstNameInput, lastNameInput, idInput, titleInput, annualSalaryInput);
-    $('#employeeTableBody').append('<tr><td>' + firstNameInput + '</td>' + '<td>' + lastNameInput + '</td>' + '<td>' + idInput + '</td>' + '<td>' + titleInput + '</td>' + '<td id="salary-data"> $ ' + annualSalaryInput + '</td> <td><button class="btn btn-dark" id="delete-button">Delete Entry</button></td></tr>');
+    $('#employeeTableBody').append('<tr><td>' + firstNameInput + '</td>' + '<td>' + lastNameInput + '</td>' + '<td>' + idInput + '</td>' + '<td>' + titleInput + '</td>' + '<td> $ ' + annualSalaryInput + '</td> <td><button class="btn btn-warning" id="delete-button">Delete Entry</button></td></tr>');
     employeeArray.push(inputEmployee); // adds employee to employeeArray
     $('#firstNameInput').val('');
     $('#lastNameInput').val('');
@@ -46,7 +46,7 @@ function calculateCosts(arrayOfEmployees) {
     }
     $('#total-container').html('<p> Total Monthly Costs: $ ' + monthlyTotal.toFixed(2) + '</p>');
     if (monthlyTotal > 20000) {
-        $('#total-container').css('background-color', '#d80614');
+        $('#total-container').css('background-color', '#f75151');
         $('#total-container').css('font-size', '1.5em');
         $('#total-container').css('font-weight', 'bold');
     } else if (monthlyTotal < 20000) {
