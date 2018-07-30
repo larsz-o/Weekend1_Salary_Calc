@@ -27,11 +27,7 @@ function appendDOM() {
     let inputEmployee = new Employee(firstNameInput, lastNameInput, idInput, titleInput, annualSalaryInput);
     $('#employeeTableBody').append('<tr><td>' + firstNameInput + '</td>' + '<td>' + lastNameInput + '</td>' + '<td>' + idInput + '</td>' + '<td>' + titleInput + '</td>' + '<td> $ ' + annualSalaryInput + '</td> <td><button class="btn btn-warning" id="delete-button">Delete Entry</button></td></tr>');
     employeeArray.push(inputEmployee); // adds employee to employeeArray
-    $('#firstNameInput').val('');
-    $('#lastNameInput').val('');
-    $('#idInput').val('');
-    $('#titleInput').val('');
-    $('#annualSalaryInput').val('');
+    $('#input-container input').val('');
     calculateCosts(employeeArray);
 }
 
@@ -47,20 +43,20 @@ function calculateCosts(arrayOfEmployees) {
     $('#total-container').html('<p> Total Monthly Costs: $ ' + monthlyTotal.toFixed(2) + '</p>');
     if (monthlyTotal > 20000) {
         $('#total-container').css('background-color', '#f75151');
-        $('#total-container').css('font-size', '1.5em');
-        $('#total-container').css('font-weight', 'bold');
+        $('#total-container').css('color', 'white');
+        $('#total-container').css('font-size', '1.5em'); 
     } else if (monthlyTotal < 20000) {
         $('#total-container').css('background-color', 'white');
+        $('#total-container').css('color', 'black');
         $('#total-container').css('font-size', '1.25em');
-        $('#total-container').css('font-weight', 'normal');
     }
 }
 
 function deleteEntry() {
     let index = $(this).closest('td').parent()[0].sectionRowIndex; //finds the index of the row that is deleted & assigns that number to "index"
-    console.log(index);
+    // console.log(index);
     employeeArray.splice(index, 1);
-    console.log(employeeArray); 
+    // console.log(employeeArray); 
     $(this).parent().parent().remove();
     calculateCosts(employeeArray);
 }
